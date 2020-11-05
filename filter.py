@@ -1,10 +1,19 @@
-#NO TYPO ALGORITHIMS IMPLEMENTED YET, IMPLEMENTION IS TOP PRIORITY.
+import string
+alphabet = string.ascii
 file = open("words.txt")
 words = file.read()
 words = words.split("\n")
-keyboardtypos = None
 def filter(word):
   if word in words:
     return False
-  else:
-    return True
+  x = len(word)
+  word_chars = list(word)
+  for i in range(0, x-1):
+    for letter in alphabet:
+      word_chars[i] = letter
+      edit_word = ""
+      edit_word.join(word_chars)
+      if edit_word in words:
+        return False
+      word_chars = list(word)
+  return True
