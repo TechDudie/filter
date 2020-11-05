@@ -1,5 +1,7 @@
 import string
+#get alphabet
 alphabet = string.ascii
+#get words
 file = open("words.txt")
 words = file.read()
 words = words.split("\n")
