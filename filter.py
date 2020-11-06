@@ -1,12 +1,14 @@
 import string
-#get alphabet
+from spellchecker import SpellChecker
 alphabet = string.ascii
-#get words
+spell = SpellChecker()
 file = open("words.txt")
 words = file.read()
 words = words.split("\n")
 def filter(word):
   if word in words:
+    return False
+  if spell.correction(word) in words:
     return False
   x = len(word)
   word_chars = list(word)
