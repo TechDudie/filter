@@ -18,6 +18,6 @@ def filter(word):
       edit_word = ""
       edit_word.join(word_chars)
       if edit_word in words:
-        return False
+        return True
       word_chars = list(word)
-  return True
+  return False
