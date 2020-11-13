@@ -1,14 +1,9 @@
-import string
-from spellchecker import SpellChecker
-alphabet = string.ascii
-spell = SpellChecker()
+alphabet = "qwertyuiopasdfghjklzxcvbnm"
 file = open("words.txt")
 words = file.read()
 words = words.split("\n")
 def filter(word):
   if word in words:
-    return False
-  if spell.correction(word) in words:
     return False
   x = len(word)
   word_chars = list(word)
@@ -16,7 +11,8 @@ def filter(word):
     for letter in alphabet:
       word_chars[i] = letter
       edit_word = ""
-      edit_word.join(word_chars)
+      for x in word_chars:
+        edit_word += x
       if edit_word in words:
         return True
       word_chars = list(word)
